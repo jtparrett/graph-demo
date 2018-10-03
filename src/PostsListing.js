@@ -44,7 +44,7 @@ const PostsListing = ({classes}) => (
         }
       }
     }
-  `}>
+  `} fetchPolicy="cache-and-network">
     {({loading, error, data}) => {
       if (loading) return (
         <CircularProgress size={50} className={classes.progress} />

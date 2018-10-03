@@ -41,26 +41,9 @@ const onCompleted = (history) => (data) => {
   history.push('/')
 }
 
-const query = gql`
-  {
-    allPosts(orderBy: createdAt_DESC) {
-      id
-      title
-      image
-      body
-      createdAt
-      author {
-        firstName
-        lastName
-        avatar
-      }
-    }
-  }
-`
-
 const Create = ({classes, history, userId}) => (
   <Paper className={classes.paper}>
-    <Mutation mutation={mutation} onCompleted={onCompleted(history)} refetchQueries={[{ query }]}>
+    <Mutation mutation={mutation} onCompleted={onCompleted(history)}>
       {(create, {loading, error}) => {
         return (
           <div>
